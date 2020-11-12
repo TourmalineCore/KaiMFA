@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "name": "KaiMFA",
+  "description": "Login with your KaiOS device to services protected with two-factor authentication. Sync a new authenticator with your service using its secret and use it later on to generate one time password codes.",
+  "type": "web",
+  "launch_path": "/index.html",
+  "icons": {
+    "56": "/assets/icons/KaiMFA_56.png",
+    "112": "/assets/icons/KaiMFA_112.png"
+  },
+  "developer": {
+    "name": "Tourmaline Core",
+    "url": "https://tourmalinecore.com"
+  },
+  "locales": {
+    "en-US": {
+      "name": "KaiMFA",
+      "subtitle": "One time password authenticator for 2FA",
+      "description": "Login with your KaiOS device to services protected with two-factor authentication. Sync a new authenticator with your service using its secret and use it later on to generate one time password codes."
+    }
+  },
+  "default_locale": "en-US",
+  "categories": [
+    "utilities"
+  ]
+}

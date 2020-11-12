@@ -1,0 +1,21 @@
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# production
+/build
+
+# cypress
+cypress/snapshots/actual
+cypress/snapshots/diff
+cypress/videos
+
+# misc
+.DS_Store
+/.nyc_output
+*debug.log*
+
+# IDE
+.idea

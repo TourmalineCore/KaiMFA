@@ -1,0 +1,14 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "experimentalComponentTesting": true,
+  "componentFolder": "src",
+  "testFiles": "**/*.spec.js",
+  "viewportHeight": 320,
+  "viewportWidth": 240,
+  "screenshotsFolder": "./cypress/snapshots/actual",
+  "trashAssetsBeforeRuns": true,
+  "env": {
+    "failSilently": false
+  },
+  "nodeVersion":"system"
+}

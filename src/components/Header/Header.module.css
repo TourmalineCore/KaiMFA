@@ -1,0 +1,14 @@
+header {
+  position: fixed;
+  width: 100%;
+  height: 28px;
+  text-align: center;
+  background-color: #320374;
+  padding: 5px 10px;
+}
+
+header span {
+  font-size: 17px;
+  font-weight: 300;
+  color: #ffffff;
+}

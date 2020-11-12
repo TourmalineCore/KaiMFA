@@ -1,0 +1,44 @@
+.auth-field {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 70px;
+
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  background-color: white;
+}
+
+.auth-field__label {
+  padding-bottom: 5px;
+
+  font-size: 14px;
+}
+
+.auth-field__required {
+  margin-left: 2px;
+
+  color: red;
+}
+
+.auth-field__input {
+  height: 36px;
+  width: 100%;
+  font-size: 17px;
+  border-color: #aaaaaa;
+  border-radius: 3px;
+}
+
+.auth-field__input--textarea {
+  height: 124px;
+  font-family: inherit;
+}
+
+/* KaiOS landscape devices (320x240) */
+@media screen and (orientation: landscape) {
+  .auth-field__input--textarea {
+    height: 62px;
+  }
+}

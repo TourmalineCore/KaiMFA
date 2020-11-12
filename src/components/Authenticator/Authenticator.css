@@ -1,0 +1,32 @@
+.auth-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 10px;
+
+  height: 172px;
+
+  background-color: white;
+}
+
+.auth-content .progress {
+  margin-top: 18px;
+}
+
+/* KaiOS landscape devices (320x240) */
+@media screen and (orientation: landscape) {
+  .auth-content {
+    height: 92px;
+  }
+  
+  .auth-content .progress {
+    margin-top: 0;
+  }
+}
+
+.auth-content__code {
+  font-size: 30px;
+  font-weight: 700;
+}

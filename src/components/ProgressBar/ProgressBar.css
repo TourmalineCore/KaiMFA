@@ -1,0 +1,31 @@
+.progress {
+  width: 100%;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+}
+
+.progress-bar--wrapper{
+  display: flex;
+
+  margin-top: 10px;
+
+  background-color: #aaaaaa;
+  border-radius: 3px;
+}
+
+.progress-bar {
+  height: 5px;
+  background-color: #873eff;
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+.progress-bar-delimiter {
+  width: 3px;
+  background-color: white;
+}
