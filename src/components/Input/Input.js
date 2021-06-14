@@ -3,6 +3,7 @@ import React from "react";
 import './Input.css';
 
 export const Input = ({
+  value,
   label,
   type,
   onChange = () => { },
@@ -23,6 +24,7 @@ export const Input = ({
             <textarea
               className="auth-field__input auth-field__input--textarea"
               type={type}
+              value={value}
               nav-selectable="true"
               onChange={(e) => {
                 const newValue = e.target.value;
@@ -41,6 +43,7 @@ export const Input = ({
             <input
               className="auth-field__input"
               type={type}
+              value={value}
               nav-selectable="true"
               onChange={(e) => {
                 const newValue = e.target.value;
