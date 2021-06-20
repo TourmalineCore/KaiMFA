@@ -1,8 +1,11 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "name": "KaiMFA",
   "description": "Login with your KaiOS device to services protected with two-factor authentication. Sync a new authenticator with your service using its secret and use it later on to generate one time password codes.",
-  "type": "web",
+  "type": "privileged",
+  "permissions": {
+    "video-capture":{}
+	},
   "launch_path": "/index.html",
   "icons": {
     "56": "/assets/icons/KaiMFA_56.png",
