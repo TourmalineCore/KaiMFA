@@ -10,6 +10,7 @@ import { useNavigation } from '../../hooks/useNavigation';
 
 const FORM_VIEW = 'FORM_VIEW';
 const QR_VIEW = 'QR_VIEW';
+const QR_HELP_VIEW = 'QR_HELP_VIEW';
 
 class NewAuthenticator extends React.Component {
   constructor(props) {
@@ -24,9 +25,6 @@ class NewAuthenticator extends React.Component {
 
   handleScan = data => {
     if (data) {
-      console.log('!!!!!!!!!')
-      console.log(this.state)
-      console.log(data)
       this.setState({
         secret: data,
         mode: FORM_VIEW,
@@ -45,8 +43,8 @@ class NewAuthenticator extends React.Component {
       mode,
     } = this.state;
 
-    return mode === FORM_VIEW
-      ? (
+    const viewMap = {
+      [FORM_VIEW]: (
         <NewAuthenticatorFields
           name={name}
           secret={secret}
@@ -56,14 +54,23 @@ class NewAuthenticator extends React.Component {
           onScan={() => this.setState({ mode: QR_VIEW })}
           onSave={this.onSave}
         />
-      )
-      : (
+      ),
+      [QR_VIEW]: (
         <ScanView
           handleError={this.handleError}
           handleScan={this.handleScan}
           onCancel={() => this.setState({ mode: FORM_VIEW })}
+          onShowHelp={() => this.setState({ mode: QR_HELP_VIEW })}
         />
-      );
+      ),
+      [QR_HELP_VIEW]: (
+        <HelpView
+          onCancel={() => this.setState({ mode: QR_VIEW })}
+        />
+      )
+    }
+
+    return viewMap[mode];
   }
 
   onSave = () => {
@@ -146,30 +153,57 @@ function NewAuthenticatorFields({
 }
 
 function ScanView({
-  result,
   handleScan,
   handleError,
   onCancel,
+  onShowHelp,
 }) {
   useNavigation();
 
   return (
     <>
       <Header title="Scan QR Code" />
-      <div className="content">
+      <div className="content" style={{ textAlign: 'center' }}>
         <QrReader
           delay={300}
+          facingMode="environment"
           onError={handleError}
           onScan={handleScan}
           style={{ width: '100%' }}
         />
-        <p>{result}</p>
+        <div className="message" style={{ marginTop: '-21px' }}>Point at the QR code</div>
       </div>
       <Softkey
         left="Cancel"
         onKeyLeft={onCancel}
-        center="Scan"
-        onKeyCenter={onCancel}
+        right="Help"
+        onKeyRight={onShowHelp}
+      />
+    </>
+  );
+}
+
+function HelpView({
+  onCancel,
+}) {
+  useNavigation();
+
+  return (
+    <>
+      <Header title="Help: Scan QR Code" />
+      <div className="content" style={{paddingBottom: '28px'}}>
+        <div className="message" style={{ marginTop: '-27px' }}>
+          Point your device camera at the QR that is going to be used to generate one time password (OTP) codes.
+          <br/>
+          You do not need to push any buttons just wait for a few moments until it is recognized.
+          <br/>
+          In case you accedentally denied access to the camera you can give it another try going to 
+          Settings | Privacy & Security | App Permissions | KaiMFA then select Camera and choose Ask or Grant and re-open the app.
+        </div>
+      </div>
+      <Softkey
+        left="Cancel"
+        onKeyLeft={onCancel}
       />
     </>
   );
