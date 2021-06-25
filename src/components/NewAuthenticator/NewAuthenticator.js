@@ -7,6 +7,7 @@ import Softkey from '../Softkey/Softkey';
 import { Input } from '../Input/Input';
 import { createAuthenticator } from '../../services/authenticatorsProvider';
 import { useNavigation } from '../../hooks/useNavigation';
+import normalizeSecret from './secretNormalizer';
 
 const FORM_VIEW = 'FORM_VIEW';
 const QR_VIEW = 'QR_VIEW';
@@ -92,18 +93,6 @@ class NewAuthenticator extends React.Component {
 
     this.props.history.push('/list');
   }
-}
-
-function normalizeSecret(secret) {
-  let normalizedSecret;
-  if (!secret) {
-    normalizedSecret = '';
-  }
-
-  normalizedSecret = secret.replace(/\s+/g, ''); // remove spaces
-  normalizedSecret = normalizedSecret.toLowerCase();
-
-  return normalizedSecret;
 }
 
 function NewAuthenticatorFields({
