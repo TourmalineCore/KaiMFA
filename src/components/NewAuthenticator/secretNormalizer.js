@@ -1,5 +1,3 @@
-import 'core-js/features/regexp';
-
 export default function normalizeSecret(secret) {
   let normalizedSecret;
   if (!secret) {
@@ -10,9 +8,9 @@ export default function normalizeSecret(secret) {
   normalizedSecret = normalizedSecret.toLowerCase();
 
   if (normalizedSecret.startsWith('otpauth://')){
-    const queryTypeAndNameMatch = RegExp('(?<=secret=).*?(?=&|$)', 'gm').exec(normalizedSecret);
+    const queryTypeAndNameMatch = /secret=.*?(?=&|$)/gm.exec(normalizedSecret);
 
-    return queryTypeAndNameMatch[0];
+    return queryTypeAndNameMatch[0].replace('secret=', '');
   }
 
   return normalizedSecret;
