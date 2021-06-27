@@ -36,8 +36,6 @@ function isValidPassword(passwordToCheck) {
 
   const expectedHash = localStorage.getItem(PASSWORD_HASH_KEY);
 
-  console.log(hash)
-  console.log(expectedHash)
   return hash === expectedHash;
 }
 
