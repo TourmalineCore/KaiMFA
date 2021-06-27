@@ -24,5 +24,6 @@ SHA512 is used to hash the salted password. AES is used to encrypt and decrypt t
 - Setup the initial password to be able to use the app and store its secrets encrypted
 - Login to the app when it is opened with the password validation
 - Create a new authenticator specifying its name and secret
+- Scan the QR code or fill in the secret manually
 - Delete an existing authenticator
 - Generate OTP codes on the authenticator page
