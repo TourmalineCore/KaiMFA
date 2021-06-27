@@ -1,13 +1,14 @@
 {
-  "name": "kai-auth",
-  "version": "1.0.0",
+  "name": "kai-mfa",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
-    "build": "cross-env GENERATE_SOURCEMAP=false react-scripts build",
-    "test": "npm run cypress:run-all",
+    "build": "cross-env GENERATE_SOURCEMAP=false INLINE_RUNTIME_CHUNK=false react-scripts build",
+    "test": "run-s ava:run-unit cypress:run-all",
     "eject": "react-scripts eject",
     "release": "standard-version",
+    "ava:run-unit": "ava",
     "cypress-ui": "npx cypress open",
     "cypress:run-all": "run-s cypress:run-unit cypress:run-beh cypress:run-snap",
     "cypress:run-unit": "cypress run --config testFiles=\"**/*.unit.spec.js\"",
@@ -20,17 +21,20 @@
     "otplib": "12.0.1",
     "react": "16.8.6",
     "react-dom": "16.8.6",
+    "react-qr-reader": "^2.2.1",
     "react-router-dom": "5.2.0",
     "react-scripts": "3.4.1",
     "uuid": "8.2.0"
   },
   "devDependencies": {
+    "ava": "^3.15.0",
     "cross-env": "7.0.2",
     "cypress": "5.3.0",
     "cypress-react-unit-test": "4.14.4",
     "cypress-visual-regression": "1.5.1",
+    "esm": "^3.2.25",
     "npm-run-all": "4.1.5",
-    "standard-version": "9.0.0"
+    "standard-version": "^9.3.0"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -45,6 +49,15 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "ava": {
+    "files": [
+      "**/*.ava.spec.js"
+    ],
+    "verbose": true,
+    "require": [
+      "esm"
     ]
   }
 }
